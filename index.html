@@ -128,25 +128,30 @@
         result.style.color = '#fff';
         result.style.border = 'none';
         result.style.boxShadow = '1px 1px black'
-      } else {
-        for (let i = 2; i < inputValue; i++) {
-          if (inputValue % i == 0) {
-            result.innerHTML = `${inputValue} não é Primo.`
-            result.style.backgroundColor = 'orange'
-            result.style.color = '#fff'
-            result.style.boxShadow = '1px 1px black'
-            result.style.border = 'none'
-            break
-          } else {
-            result.innerHTML = `${inputValue} é Primo.`
-            result.style.backgroundColor = 'rgb(18, 156, 80)'
-            result.style.color = '#fff'
-            result.style.border = 'none'
-            result.style.boxShadow = '1px 1px black'
-          }
+      } else if (inputValue == 1) {
+        result.innerHTML = `${inputValue} não é Primo.`
+        result.style.backgroundColor = 'orange'
+        result.style.color = '#fff'
+        result.style.boxShadow = '1px 1px black'
+        result.style.border = 'none'
+      } else for (let i = 2; i < inputValue; i++) {
+        if (inputValue % i == 0) {
+          result.innerHTML = `${inputValue} não é Primo.`
+          result.style.backgroundColor = 'orange'
+          result.style.color = '#fff'
+          result.style.boxShadow = '1px 1px black'
+          result.style.border = 'none'
+          break
+        } else {
+          result.innerHTML = `${inputValue} é Primo.`
+          result.style.backgroundColor = 'rgb(18, 156, 80)'
+          result.style.color = '#fff'
+          result.style.border = 'none'
+          result.style.boxShadow = '1px 1px black'
         }
       }
-    };
+    }
+    ;
 
   </script>
 </body>
