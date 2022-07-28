@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Números Primos</title>
+
+  <style>
+    /*============ Geral ==================*/
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: blueviolet;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /*================ Conteúdo ========================*/
+    .content {
+      background: rgb(248, 247, 247);
+      width: 400px;
+      height: 250px;
+      border-radius: 5px;
+      box-shadow: 2px 2px black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgb(226, 13, 13);
+      margin-top: -20px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-top: -20px;
+      margin-bottom: 35px;
+    }
+
+    #number {
+      width: 100px;
+      font-style: italic;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+    }
+
+    button {
+      width: 80px;
+      height: 25px;
+      margin-top: 5px;
+      border-radius: 0px;
+      border: 1px solid gray;
+      cursor: pointer;
+      font-weight: 500;
+      background-color: black;
+      color: white;
+    }
+
+    button:hover {
+      background: rgb(248, 247, 247);
+      color: black;
+      transition: .4s;
+    }
+
+    .result {
+      width: 150px;
+      height: 40px;
+      margin-top: 15px;
+      border: 1px solid rgb(117, 115, 115);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <h2>Verifique aqui se o número é primo:</h2>
+    <div class="form">
+      <label for="number">Insira seu número abaixo:</label>
+      <input id="number" type="number" name="inputNumber" autocomplete="off" placeholder="Seu número">
+      <button>Checkar</button>
+    </div>
+    <div class="result">?</div>
+  </div>
+
+  <script>
+    let input = document.querySelector('#number');
+    let result = document.querySelector('.result')
+    const btn = document.querySelector('button')
+
+
+    btn.addEventListener('click', verifyNumber)
+
+    function verifyNumber() {
+      let inputValue = input.value;
+      if (inputValue == 2) {
+        result.innerHTML = `${inputValue} é Primo.`;
+        result.style.backgroundColor = 'rgb(18, 156, 80)';
+        result.style.color = '#fff';
+        result.style.border = 'none';
+        result.style.boxShadow = '1px 1px black'
+      } else {
+        for (let i = 2; i < inputValue; i++) {
+          if (inputValue % i == 0) {
+            result.innerHTML = `${inputValue} não é Primo.`
+            result.style.backgroundColor = 'orange'
+            result.style.color = '#fff'
+            result.style.boxShadow = '1px 1px black'
+            result.style.border = 'none'
+            break
+          } else {
+            result.innerHTML = `${inputValue} é Primo.`
+            result.style.backgroundColor = 'rgb(18, 156, 80)'
+            result.style.color = '#fff'
+            result.style.border = 'none'
+            result.style.boxShadow = '1px 1px black'
+          }
+        }
+      }
+    };
+
+  </script>
+</body>
+
+</html>
